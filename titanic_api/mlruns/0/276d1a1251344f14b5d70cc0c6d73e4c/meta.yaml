@@ -1,0 +1,15 @@
+artifact_uri: file:///home/josedavid/Desktop/Shakers_Entrevista/shakers_prueba_tecnica/titanic_api/mlruns/0/276d1a1251344f14b5d70cc0c6d73e4c/artifacts
+end_time: 1722122045456
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 276d1a1251344f14b5d70cc0c6d73e4c
+run_name: rare-swan-17
+run_uuid: 276d1a1251344f14b5d70cc0c6d73e4c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722122043123
+status: 3
+tags: []
+user_id: josedavid

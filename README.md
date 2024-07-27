@@ -127,12 +127,12 @@ Adicionalmente, se generan los archivos **confusion_matrix.txt**, **model.pkl** 
 
 ## Documentación de la API
 
-A continuación se detallan los métodos de la API. Los 3 son de tipo POST:
+A continuación se detallan los métodos de la API:
 
-1. **`/load-passengers`** -> Carga los pasajeros en la base de datos.
-2. **`/train`** -> Entrena el modelo.
-3. **`/predict`** -> Predice si el pasajero ha sobrevivido o no.
-4. **`/add_passenger`** -> Añade un nuevo pasajero a la base de datos.
+1. **`/load-passengers`** -> Carga los pasajeros en la base de datos. Tipo POST.
+2. **`/train`** -> Entrena el modelo. Tipo POST.
+3. **`/predict`** -> Predice si el pasajero ha sobrevivido o no. Tipo GET.
+4. **`/add_passenger`** -> Añade un nuevo pasajero a la base de datos. Tipo POST.
 
 
 ## Otros detalles 

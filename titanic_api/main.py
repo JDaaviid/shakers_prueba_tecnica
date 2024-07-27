@@ -1,4 +1,4 @@
-from fastapi import FastAPI, BackgroundTasks, Depends, HTTPException, Header, File, UploadFile
+from fastapi import FastAPI, BackgroundTasks, Depends, HTTPException, Header, File, UploadFile, Query
 import pandas as pd
 import joblib
 import os
@@ -110,17 +110,36 @@ async def train_endpoint(train_request: TrainRequest, background_tasks: Backgrou
     background_tasks.add_task(train_model, train_request.test_size)
     return {"message": "Training started in background"}
 
-@app.post("/predict")
-async def predict_endpoint(predict_request: PredictRequest, model = Depends(get_model), api_token: str = Header(...)):
+
+@app.get("/predict")
+async def predict_endpoint(
+    Pclass: int,
+    Sex: str,
+    Age: float,
+    SibSp: int,
+    Parch: int,
+    Fare: float,
+    Embarked: str,
+    model = Depends(get_model),
+    api_token: str = Query(...)
+):
     """Predict the survival for the provided data."""
     if api_token != API_TOKEN:
         raise HTTPException(status_code=403, detail="Invalid API Token")
-    
 
-    data = pd.DataFrame([predict_request.dict()])
-    processed_data = preprocess(data)
+    passenger_data = {
+        "Pclass": Pclass,
+        "Sex": Sex,
+        "Age": Age,
+        "SibSp": SibSp,
+        "Parch": Parch,
+        "Fare": Fare,
+        "Embarked": Embarked
+    }
+    processed_data = preprocess(pd.DataFrame([passenger_data]))  
     prediction = model.predict(processed_data)
     return {"prediction": prediction.tolist()}
+
 
 @app.post("/add_passenger")
 async def add_passenger(predict_request: PredictRequest, db: Session = Depends(get_db), api_token: str = Header(...)):

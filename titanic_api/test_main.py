@@ -37,42 +37,41 @@ def train_model():
 
 
 def test_predict_endpoint():
-    
-    headers = {"api-token": "1111"}  
-
-    response = client.post("/predict", headers=headers, json={
+    api_token = "1111"
+    response = client.get("/predict", params={
         "Pclass": 3,
         "Sex": "male",
         "Age": 22.0,
         "SibSp": 1,
         "Parch": 0,
         "Fare": 7.25,
-        "Embarked": "S"
+        "Embarked": "S",
+        "api_token": api_token
     })
 
     print("Prediction request status code:", response.status_code)
     print("Prediction request response:", response.json())
-    
+
     assert response.status_code == 200
     assert "prediction" in response.json()
 
 def test_predict_invalid_input():
-    
-    headers = {"api-token": "1111"}  
-    
-    response = client.post("/predict", headers=headers, json={
-        "Pclass": "invalid",
+    api_token = "1111"
+    response = client.get("/predict", params={
+        "Pclass": "invalid",  # Invalid input
         "Sex": "male",
         "Age": 22.0,
         "SibSp": 1,
         "Parch": 0,
         "Fare": 7.25,
-        "Embarked": "S"
+        "Embarked": "S",
+        "api_token": api_token
     })
+    
     print("Invalid input request status code:", response.status_code)
     print("Invalid input request response:", response.json())
-    
-    assert response.status_code == 422 
+
+    assert response.status_code == 422  # Expecting a validation error
     
     
 def test_add_passenger():
@@ -81,7 +80,7 @@ def test_add_passenger():
     
     passenger_data = {
         "Pclass": 1,
-        "Sex": "female",  # Ensure this matches your schema's expected value
+        "Sex": "female",  
         "Age": 30.0,
         "SibSp": 0,
         "Parch": 0,
