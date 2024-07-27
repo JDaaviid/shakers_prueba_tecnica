@@ -55,7 +55,11 @@ def preprocess(data: pd.DataFrame) -> pd.DataFrame:
 
 
 @app.post("/load-passengers/")
-async def load_passengers(file: UploadFile = File(...)):
+async def load_passengers(file: UploadFile = File(...), api_token: str = Header(...)):
+    
+    if api_token != API_TOKEN:
+        raise HTTPException(status_code=403, detail="Invalid API Token")
+    
     df = pd.read_csv(file.file)
     
 

@@ -10,8 +10,10 @@ client = TestClient(app)
 def load_passengers():
     csv_file_path = "dataset/train.csv" 
     
+    headers = {"api-token": "1111"}  
+    
     with open(csv_file_path, "rb") as f:
-        response = client.post("/load-passengers/", files={"file": ("titanic.csv", f, "text/csv")})
+        response = client.post("/load-passengers/", files={"file": ("titanic.csv", f, "text/csv")},  headers=headers)
         print(f"Response Status Code: {response.status_code}")
         print(f"Response Body: {response.text}")
         assert response.status_code == 200

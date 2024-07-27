@@ -8,21 +8,23 @@ Este repositorio contiene la documentación de la prueba técnia desarrollada pa
 3. [Estructura del proyecto](#estructura-del-proyecto)
 4. [Pruebas realizadas](#pruebas-realizadas)
 5. [Documentación de la API](#documentación-de-la-api)
+6. [Otros detalles](#otros-detalles)
 
 
 ## Tecnología usada
 
 - **FastAPI**:: Un marco web moderno y rápido (de alto rendimiento) para construir APIs con Python.
 - **MySQL**: Un sistema de gestión de bases de datos relacional de código abierto.
+- **SQLAlchemy ORM**: ORM para interactuar con la base de datos.
 
 
 ## Instrucciones de instalación
 
-### prerrequisitos
+### Prerrequisitos
 
 - Python 3.12
 - Varias librerías de Python (incluídas en requirements.txt)
-- Base de datos MySQL.
+- Base de datos MySQL
 
 
 
@@ -35,32 +37,38 @@ Este repositorio contiene la documentación de la prueba técnia desarrollada pa
     cd shakers_prueba_tecnica
     ```
 2. **Crear un entorno de Anaconda**
-
+    
+    ```sh
     conda create --name shakers python=3.12
-
+    ```
 
 3. **Instalar las dependiencias en el entorno**
 
+    ```sh
     pip install -r requirements.txt
+    ```
 
 4. **Establecer la base de datos con MySQL en el localhost:3306**
+    ```sh
     CREATE USER 'rootShakers'@'localhost' IDENTIFIED BY 'root&Password1';
     GRANT ALL PRIVILEGES ON titanic_db.* TO 'rootShakers'@'localhost';
     FLUSH PRIVILEGES;
-
+    ```
 5. **Actualizar variables de entorno en .env**
 
 4. **Ejecutar la API en el puerto 8000**
-
+    ```sh
     python main.py
+    ```
 
-5. **Ejecutar el archivo de pruebas test_main.py**
+5. **Ejecutar el archivo de pruebas**
+    ```sh
     python test_main.py
-
+    ```
 
 ## Estructura del proyecto
 
-La estructura del proyecto es la siguiente:
+La estructura original del proyecto es la siguiente:
 
 - **`database.py`**: Configuración para la base de datos.
 - **`dataset/`**: Carpeta que contiene los archivos CSV del conjunto de datos.
@@ -69,7 +77,6 @@ La estructura del proyecto es la siguiente:
   - **`train.csv`**
 - **`main.py`**: Archivo principal para ejecutar la aplicación.
 - **`models.py`**: Definición de los modelos de datos.
-- **`predict.py`**: Script para realizar predicciones.
 - **`requirements.txt`**: Lista de dependencias del proyecto.
 - **`test_main.py`**: Pruebas para el archivo principal de la aplicación.
 - **`train.py`**: Script para entrenar el modelo.
@@ -118,13 +125,19 @@ Adicionalmente, se generan los archivos confusion_matrix.txt, model.pkl y la car
 
 ## Documentación de la API
 
-A continuación se detallan los endpoints de la API:
+A continuación se detallan los métodos de la API. Los 3 son de tipo POST:
 
 1. **`/load-passengers`** -> Carga los pasajeros en la base de datos.
 2. **`/train`** -> Entrena el modelo.
 3. **`/predict`** -> Predice si el pasajero ha sobrevivido o no.
 4. **`/add_passenger`** -> Añade un nuevo pasajero a la base de datos.
 
+
+## Otros detalles 
+1. Se utiliza Pydantic para validación de datos.
+2. Se realiza la inyección de dependencias en varios endpoints.
+3. Se resuelve el caso esquina en el que los tipos enviados no son los esperados por el modeo o si hay un input en formato no válido (manejo de peticiones erróneas)
+4. Los métodos de la API están protegidos mediante un nivel de seguridad que incluye autenticación con un API TOKEN.
 
 
 
