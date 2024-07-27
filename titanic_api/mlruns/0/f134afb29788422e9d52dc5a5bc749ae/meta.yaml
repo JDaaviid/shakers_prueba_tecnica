@@ -1,0 +1,15 @@
+artifact_uri: file:///home/josedavid/Desktop/Shakers_Entrevista/Codigo_PruebaTecnica/titanic_api/mlruns/0/f134afb29788422e9d52dc5a5bc749ae/artifacts
+end_time: 1722012278328
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: f134afb29788422e9d52dc5a5bc749ae
+run_name: fearless-bear-218
+run_uuid: f134afb29788422e9d52dc5a5bc749ae
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722012276862
+status: 3
+tags: []
+user_id: josedavid
