@@ -5,8 +5,9 @@ Este repositorio contiene la documentación de la prueba técnia desarrollada pa
 ## Tabla de contenidos
 1. [Tecnología usada](#tecnología-usada)
 2. [Instrucciones de instalación](#instrucciones-de-instalación)
-3. [Otra información relevante](#otra-información-relevante)
-4. [Documentación de la API](#documentación-de-la-api)
+3. [Estructura del proyecto](#estructura-del-proyecto)
+4. [Pruebas realizadas](#pruebas-realizadas)
+5. [Documentación de la API](#documentación-de-la-api)
 
 
 ## Tecnología usada
@@ -59,17 +60,20 @@ Este repositorio contiene la documentación de la prueba técnia desarrollada pa
 
 ## Estructura del proyecto
 
-├── database.py
-├── dataset
-│   ├── gender_submission.csv
-│   ├── test.csv
-│   └── train.csv
-├── main.py
-├── models.py
-├── predict.py
-├── requirements.txt
-├── test_main.py
-└── train.py
+La estructura del proyecto es la siguiente:
+
+- **`database.py`**: Configuración para la base de datos.
+- **`dataset/`**: Carpeta que contiene los archivos CSV del conjunto de datos.
+  - **`gender_submission.csv`**
+  - **`test.csv`**
+  - **`train.csv`**
+- **`main.py`**: Archivo principal para ejecutar la aplicación.
+- **`models.py`**: Definición de los modelos de datos.
+- **`predict.py`**: Script para realizar predicciones.
+- **`requirements.txt`**: Lista de dependencias del proyecto.
+- **`test_main.py`**: Pruebas para el archivo principal de la aplicación.
+- **`train.py`**: Script para entrenar el modelo.
+
 
 ## Pruebas realizadas
 El script de python para realizar varias pruebas es test_main.py
@@ -86,7 +90,6 @@ Tras ejecutar el script de python que realiza varias pruebas en la API
 4. test_predict_invalid_input() -> Llamada a la API para hacer una predicción de un pasajero con valores con tipos no válidos. Concretamente, "Pclass" se pasa como un valor string en lugar de un integer, el cual es el esperado por el modelo. En la llamada se utiliza el API_TOKEN.
 
 5. test_add_passenger() -> Llamada a la API para añadir un pasajero a la base de datos. En la llamada se utiliza el API_TOKEN.
-
 
 
 ### Resultados de ejecutar test_main.py
@@ -110,11 +113,18 @@ Add passenger request response: {'message': 'Passenger added', 'passenger_id': 8
 All tests completed.
 ```
 
+Adicionalmente, se generan los archivos confusion_matrix.txt, model.pkl y la carpeta mlruns para la observabilidad de los resultados del entrenamiento realizado.
 
 
 ## Documentación de la API
 
-### Endpoints de la API
+A continuación se detallan los endpoints de la API:
+
+1. **`/load-passengers`** -> Carga los pasajeros en la base de datos.
+2. **`/train`** -> Entrena el modelo.
+3. **`/predict`** -> Predice si el pasajero ha sobrevivido o no.
+4. **`/add_passenger`** -> Añade un nuevo pasajero a la base de datos.
+
 
 
 

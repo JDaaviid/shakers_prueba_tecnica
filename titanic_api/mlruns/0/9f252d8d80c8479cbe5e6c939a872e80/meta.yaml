@@ -1,0 +1,15 @@
+artifact_uri: file:///home/josedavid/Desktop/Shakers_Entrevista/shakers_prueba_tecnica/titanic_api/mlruns/0/9f252d8d80c8479cbe5e6c939a872e80/artifacts
+end_time: 1722108434448
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 9f252d8d80c8479cbe5e6c939a872e80
+run_name: merciful-penguin-546
+run_uuid: 9f252d8d80c8479cbe5e6c939a872e80
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722108432291
+status: 3
+tags: []
+user_id: josedavid

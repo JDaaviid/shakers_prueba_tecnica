@@ -8,7 +8,7 @@ client = TestClient(app)
 
 
 def load_passengers():
-    csv_file_path = "dataset/train.csv"  # Update this path
+    csv_file_path = "dataset/train.csv" 
     
     with open(csv_file_path, "rb") as f:
         response = client.post("/load-passengers/", files={"file": ("titanic.csv", f, "text/csv")})
@@ -20,8 +20,8 @@ def load_passengers():
 
 def train_model():
     """Helper function to call the training API endpoint."""
-    headers = {"api-token": "1111"}  # Replace 'your_api_token_here' with the actual token value
-    data = {"test_size": 0.2}  # Example payload, ensure this matches your TrainRequest model
+    headers = {"api-token": "1111"}  
+    data = {"test_size": 0.2} 
 
     # Make the POST request to the /train/ endpoint
     response = client.post("/train", headers=headers, json=data)
@@ -111,7 +111,8 @@ def test_add_passenger():
         assert added_passenger.Fare == passenger_data["Fare"]
         assert added_passenger.Embarked == passenger_data["Embarked"]
 
-# Call the train API and run tests when the script is run directly
+
+
 if __name__ == "__main__":
     print("Starting tests...")
     load_passengers()  # Load passengers into the database

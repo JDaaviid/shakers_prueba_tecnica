@@ -22,9 +22,7 @@ session.query(Passenger).delete()
 session.commit()
 
 
-# FastAPI instance
 app = FastAPI()
-
 
 
 def get_db():
