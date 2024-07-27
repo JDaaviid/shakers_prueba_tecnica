@@ -117,7 +117,6 @@ if __name__ == "__main__":
     load_passengers()  # Load passengers into the database
     train_model()
     print("Training completed. Running tests...")
-    #test_train_endpoint()
     test_predict_endpoint()
     test_predict_invalid_input()
     test_add_passenger()  

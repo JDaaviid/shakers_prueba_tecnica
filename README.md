@@ -3,10 +3,10 @@
 Este repositorio contiene la documentación de la prueba técnia desarrollada para SHAKERS.
 
 ## Tabla de contenidos
-1. [Tecnología usada](#technology-used)
-2. [Instrucciones de instalación](#install-instructions)
-3. [Otra información relevante](#other-relevant-info)
-4. [Documentación de la API](#api-documentation)
+1. [Tecnología usada](#tecnología-usada)
+2. [Instrucciones de instalación](#instrucciones-de-instalación)
+3. [Otra información relevante](#otra-información-relevante)
+4. [Documentación de la API](#documentación-de-la-api)
 
 
 ## Tecnología usada
@@ -74,11 +74,48 @@ Este repositorio contiene la documentación de la prueba técnia desarrollada pa
 ## Pruebas realizadas
 El script de python para realizar varias pruebas es test_main.py
 
-Este código tiene las siguientes funciones
+Este código tiene realiza las siguientes pruebas:
+
+Tras ejecutar el script de python que realiza varias pruebas en la API
+1. load_passengers() -> Hace una llamada a la API para cargar los pasajeros del dataset del titanic train.csv en la base de datos MySQL.
+
+2. train_model() -> Hace una llamada a la API para entrenar un modeo de clasificación RandomForest. En la llamada se pasa el API_TOKEN para solo permitir procesar la petición a alguien autorizado.
+
+3. test_predict_endpoint() -> Llamada a la API para, tras haber entrenado el modelo con la función anterior, hacer una predicción de si un pasajero con determinadas características sobrevivió o no. En la llamada se utiliza el API_TOKEN.
+
+4. test_predict_invalid_input() -> Llamada a la API para hacer una predicción de un pasajero con valores con tipos no válidos. Concretamente, "Pclass" se pasa como un valor string en lugar de un integer, el cual es el esperado por el modelo. En la llamada se utiliza el API_TOKEN.
+
+5. test_add_passenger() -> Llamada a la API para añadir un pasajero a la base de datos. En la llamada se utiliza el API_TOKEN.
 
 
 
 ### Resultados de ejecutar test_main.py
-Tras ejecutar el script de python que realiza varias pruebas en la API
+$ python test_main.py 
+
+OUTPUT EN CONSOLA:
+```
+Starting tests...
+Response Status Code: 200
+Response Body: {"message":"Passengers loaded successfully"}
+Model trained with accuracy: 0.7622377622377622
+Train Model Response Status Code: 200
+Train Model Response Body: {"message":"Training started in background"}
+Training completed. Running tests...
+Prediction request status code: 200
+Prediction request response: {'prediction': [0]}
+Invalid input request status code: 422
+Invalid input request response: {'detail': [{'type': 'int_parsing', 'loc': ['body', 'Pclass'], 'msg': 'Input should be a valid integer, unable to parse string as an integer', 'input': 'invalid'}]}
+Add passenger request status code: 200
+Add passenger request response: {'message': 'Passenger added', 'passenger_id': 896}
+All tests completed.
+```
+
+
+
+## Documentación de la API
+
+### Endpoints de la API
+
+
 
 
