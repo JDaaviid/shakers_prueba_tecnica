@@ -1,0 +1,15 @@
+artifact_uri: file:///home/josedavid/Desktop/Shakers_Entrevista/Codigo_PruebaTecnica/titanic_api/mlruns/0/62d2cf3dc76849be8ce5b13a66cdbbe3/artifacts
+end_time: 1722044696888
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 62d2cf3dc76849be8ce5b13a66cdbbe3
+run_name: marvelous-bird-173
+run_uuid: 62d2cf3dc76849be8ce5b13a66cdbbe3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1722044694471
+status: 3
+tags: []
+user_id: josedavid

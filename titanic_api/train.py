@@ -36,6 +36,12 @@ def train_model(test_size: float):
         mlflow.log_metric("precision", precision_score(y_test, predictions))
         mlflow.log_metric("recall", recall_score(y_test, predictions))
         mlflow.log_metric("f1_score", f1_score(y_test, predictions))
+       
+        # Log confusion matrix
+        conf_matrix = confusion_matrix(y_test, predictions)
+        with open('confusion_matrix.txt', 'w') as f:
+            f.write(str(conf_matrix))
+        mlflow.log_artifact('confusion_matrix.txt')
         
     joblib.dump(model, "model.pkl")
 

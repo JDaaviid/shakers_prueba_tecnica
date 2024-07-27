@@ -1,17 +1,10 @@
-# import joblib
-# import pandas as pd
-
-# def make_prediction(data: pd.DataFrame):
-#     model = joblib.load("model.pkl")
-#     prediction = model.predict(data)
-#     return prediction.tolist()
-
-
 from fastapi import HTTPException
 import joblib
 import pandas as pd
 import os
 
+
+# DELETE THIS!!
 # Dependency for preprocessing
 def preprocess(data: pd.DataFrame) -> pd.DataFrame:
     """Preprocess input data to match the training data."""
@@ -34,6 +27,8 @@ def get_model():
     model = joblib.load("model.pkl")
     return model
 
+
+# DELETE THIS!!
 def make_prediction(data: pd.DataFrame):
     model = joblib.load("model.pkl")
     processed_data = preprocess(data)

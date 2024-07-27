@@ -6,3 +6,5 @@ joblib
 pydantic[dotenv]
 mlflow
 pytest
+pymysql
+cryptography
