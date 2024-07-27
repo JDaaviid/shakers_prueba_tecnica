@@ -16,6 +16,8 @@ Este repositorio contiene la documentación de la prueba técnia desarrollada pa
 - **FastAPI**:: Un marco web moderno y rápido (de alto rendimiento) para construir APIs con Python.
 - **MySQL**: Un sistema de gestión de bases de datos relacional de código abierto.
 - **SQLAlchemy ORM**: ORM para interactuar con la base de datos.
+- **Pydantic**
+- **MLflow**
 
 
 ## Instrucciones de instalación
@@ -120,7 +122,7 @@ Add passenger request response: {'message': 'Passenger added', 'passenger_id': 8
 All tests completed.
 ```
 
-Adicionalmente, se generan los archivos confusion_matrix.txt, model.pkl y la carpeta mlruns para la observabilidad de los resultados del entrenamiento realizado.
+Adicionalmente, se generan los archivos **confusion_matrix.txt**, **model.pkl** y la carpeta **mlruns** para la observabilidad de los resultados del entrenamiento realizado.
 
 
 ## Documentación de la API
