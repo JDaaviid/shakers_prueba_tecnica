@@ -81,15 +81,15 @@ El script de python para realizar varias pruebas es test_main.py
 Este código tiene realiza las siguientes pruebas:
 
 Tras ejecutar el script de python que realiza varias pruebas en la API
-1. load_passengers() -> Hace una llamada a la API para cargar los pasajeros del dataset del titanic train.csv en la base de datos MySQL.
+1. **`load_passengers()`** -> Hace una llamada a la API para cargar los pasajeros del dataset del titanic train.csv en la base de datos MySQL.
 
-2. train_model() -> Hace una llamada a la API para entrenar un modeo de clasificación RandomForest. En la llamada se pasa el API_TOKEN para solo permitir procesar la petición a alguien autorizado.
+2. **`train_model()`** -> Hace una llamada a la API para entrenar un modeo de clasificación RandomForest. En la llamada se pasa el API_TOKEN para solo permitir procesar la petición a alguien autorizado.
 
-3. test_predict_endpoint() -> Llamada a la API para, tras haber entrenado el modelo con la función anterior, hacer una predicción de si un pasajero con determinadas características sobrevivió o no. En la llamada se utiliza el API_TOKEN.
+3. **`test_predict_endpoint()`** -> Llamada a la API para, tras haber entrenado el modelo con la función anterior, hacer una predicción de si un pasajero con determinadas características sobrevivió o no. En la llamada se utiliza el API_TOKEN.
 
-4. test_predict_invalid_input() -> Llamada a la API para hacer una predicción de un pasajero con valores con tipos no válidos. Concretamente, "Pclass" se pasa como un valor string en lugar de un integer, el cual es el esperado por el modelo. En la llamada se utiliza el API_TOKEN.
+4. **`test_predict_invalid_input()`** -> Llamada a la API para hacer una predicción de un pasajero con valores con tipos no válidos. Concretamente, "Pclass" se pasa como un valor string en lugar de un integer, el cual es el esperado por el modelo. En la llamada se utiliza el API_TOKEN.
 
-5. test_add_passenger() -> Llamada a la API para añadir un pasajero a la base de datos. En la llamada se utiliza el API_TOKEN.
+5. **`test_add_passenger()`** -> Llamada a la API para añadir un pasajero a la base de datos. En la llamada se utiliza el API_TOKEN.
 
 
 ### Resultados de ejecutar test_main.py
