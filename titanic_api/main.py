@@ -6,10 +6,11 @@ from sqlalchemy.orm import Session
 from models import Passenger, PredictRequest, TrainRequest
 from train import train_model
 from database import SessionLocal, engine, Base
+from dotenv import load_dotenv
 
 
-# Define API token
-API_TOKEN = "1111"
+load_dotenv()
+API_TOKEN = os.getenv("API_TOKEN")
 
 # Create the database tables
 Base.metadata.create_all(bind=engine)
