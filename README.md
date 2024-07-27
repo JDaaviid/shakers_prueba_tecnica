@@ -1,6 +1,6 @@
 # Prueba técnica SHAKERS
 
-Este repositorio contiene la documentación de la prueba técnia desarrollada para SHAKERS.
+Este repositorio contiene la documentación de la prueba técnica desarrollada para SHAKERS.
 
 ## Tabla de contenidos
 1. [Tecnología usada](#tecnología-usada)
